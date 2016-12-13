@@ -1,0 +1,16 @@
+<h1>Point of sale</h1>
+<a href="/product_new">Add a new product</a>
+<a href="/purchase_new">Make a purchase</a>
+<a href="/reports">Check reports</a>
+
+
+<% if @products.any? %>
+<ul class="flex-container">
+  <% @products.each do |product| %>
+  <li class="flex-item btn btn-info"><a href="/product/<%=product.id %>"> <%=product.name %> </a></li>
+
+  <%end %>
+</ul>
+<% else %>
+  No products
+<%end %>
