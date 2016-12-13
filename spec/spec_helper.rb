@@ -1,0 +1,5 @@
+require('rspec')
+require('sinatra/activerecord')
+require('customer')
+require('purchase')
+require('product')
