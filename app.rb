@@ -25,3 +25,25 @@ post('/product_new') do
   Product.create({:name => name, :price => price, :inventory => inventory, :description => description})
   redirect '/'
 end
+
+get('/product/:id') do
+  @product = Product.find(params.fetch('id').to_i)
+  erb(:product)
+end
+
+patch('/product_new/:id') do
+  @product = Product.find(params.fetch('id').to_i)
+  name = params.fetch('new name')
+  price = params.fetch('new price')
+  inventory = params.fetch('new inventory')
+  description = params.fetch('new description')
+  @product.update({:name => name, :price => price, :inventory => inventory, :description => description})
+  redirect '/'
+end
+
+delete('/product/:id') do
+  @product = Product.find(params.fetch('id').to_i)
+  @product.destroy()
+
+  redirect '/'
+end

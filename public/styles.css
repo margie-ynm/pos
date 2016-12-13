@@ -5,23 +5,27 @@
   list-style: none;
 }
 .flex-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: papayawhip;
   padding: 5px;
   width: 200px;
   height: 150px;
   margin-top: 10px;
-
-  line-height: 150px;
-  color: white;
+  color: blue;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 3rem;
   text-align: center;
+  overflow: hidden;
 }
+
 
 a {
   display: block;
   text-decoration: none;
 }
-a.hover{
+a:hover{
+  color: white;
   text-decoration: none;
 }

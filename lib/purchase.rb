@@ -1,8 +1,6 @@
-
 class Purchase < ActiveRecord::Base
   belongs_to :customers
   belongs_to :products
-
 
   define_singleton_method(:calculate_price) do |id, start_date, end_date|
     total_cost = 0
