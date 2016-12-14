@@ -1,0 +1,12 @@
+<h3>Receipt</h3>
+
+
+<div class="well">
+    <% @products_id.each.with_index do |id,index| %>
+      Product <%= index+1 %>: <%= Product.find(id.to_i).name %> quantity: <%=@quantities[index] %> price/item: <%=Product.find(id.to_i).price %> subtotal: $<%= @quantities[index].to_i * Product.find(id.to_i).price %> <br>
+
+    <% end %>
+    Total: <%= Purchase.calculate_price(@customer.id, '2016-12-12', '2016-12-12')%>
+
+
+</div>

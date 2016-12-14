@@ -1,0 +1,47 @@
+<h3>New purchase</h3>
+
+<div class="well">
+
+
+  <% if @products.any? %>
+  <form class="" action="/purchase_new" method="post">
+    <% if @customers.any? %>
+    <div class="form-group">
+          <select name='customer_id' type='text' class="form-control">
+            <% @customers.each() do |customer| %>
+            <option value="<%= customer.id()%>"> <%= customer.name() %> </option>
+            <% end %>
+          </select>
+        </div>
+    <% else %>
+    No customers, <a href="/customer_new">Add a new one here</a>
+    <% end %>
+
+    Check products and select quantity
+  </div>
+
+    <div class="form-inline">
+      <div class="form-group">
+        <% @products.each() do |product| %>
+        <div class="well">
+          <div class="checkbox">
+            <label>
+            <input type="checkbox" name="products[]" value="<%=product.id%>">
+          </label>
+          </div>
+        <strong> <%= product.name %>  </strong> |
+        quantity:
+            <select name='quantity_<%=product.id%>' type='text' class="form-control">
+                <% (1..product.inventory.to_i).each do |num| %>
+                <option value="<%=num%>"> <%= num %></option>
+                <% end %>
+            </select>
+          </div>
+        <% end %>
+        <button class="btn btn-primary" type="submit" name="button">Add new purchase</button>
+      </div>
+  </form>
+  <% else %>
+  No customers, <a href="/product_new">Add a new one here</a>
+  <% end %>
+</div>

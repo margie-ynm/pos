@@ -1,0 +1,14 @@
+<h3>Here are all the customers</h3>
+
+<div class="well">
+  <% if @customers.any? %>
+    <ul>
+      <% @customers.each do |customer|  %>
+      <li><a href="/customer/<%= customer.id %>" ><%= customer.name %> </a></li>
+    <% end %>
+  </ul>
+  <%else %>
+  No customers, <a href="/customer_new">Add a new one here</a>
+  <%end %>
+
+</div>
